@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/auth'
-import noticiation from '../../lib/notification'
 import Form from './Form'
 
 class CreateArticle extends React.Component {
@@ -30,9 +29,9 @@ class CreateArticle extends React.Component {
 			const { data } = await axios.post('/api/articles', this.state.data, {
 				headers: { Authorization: `Bearer ${Auth.getToken()}` },
 			})
-			noticiation('Added Article')
 			this.props.history.push(`/blog/${data._id}`)
 		} catch (errors) {
+			console.log(errors.response.data.errors)
 			this.setState({ errors: errors.response.data.errors })
 		}
 	}
@@ -40,7 +39,7 @@ class CreateArticle extends React.Component {
 	render() {
 		return (
 			<section className='section'>
-				<div className='container'>
+				<div className='container pt-5'>
 					<Form
 						data={this.state.data}
 						handleChange={this.handleChange}

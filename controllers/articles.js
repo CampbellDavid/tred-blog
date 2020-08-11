@@ -7,6 +7,7 @@ function index(req, res) {
 }
 
 function create(req, res) {
+	req.body.user = req.currentUser
 	Article.create(req.body)
 		.then((createdArticle) => res.status(201).json(createdArticle))
 		.catch((err) => console.log(err))
