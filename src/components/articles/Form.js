@@ -2,10 +2,7 @@ import React from 'react'
 
 const Form = ({ data, handleChange, handleSubmit, errors }) => (
 	<div>
-		<form
-			onSubmit={handleSubmit}
-			className='column is-half is-offset-one-quarter card'
-		>
+		<form onSubmit={handleSubmit}>
 			<div>
 				<label className='label'>Title</label>
 				<div>
@@ -17,9 +14,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						value={data.title}
 					/>
 				</div>
-				{errors.type && (
-					<small className='help text-danger'>{errors.title}</small>
-				)}
+				{errors.type && <small className='text-danger'>{errors.title}</small>}
 			</div>
 
 			<div>
@@ -28,14 +23,12 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 					<input
 						className={`input ${errors._url ? 'text-danger' : ''}`}
 						placeholder='URL'
-						name='url'
+						name='_url'
 						onChange={handleChange}
 						value={data.manufacturer}
 					/>
 				</div>
-				{errors._url && (
-					<small className='help text-danger'>{errors._url}</small>
-				)}
+				{errors._url && <small className='text-danger'>{errors._url}</small>}
 			</div>
 
 			<div>
@@ -49,9 +42,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						value={data.manufacturer}
 					/>
 				</div>
-				{errors.text && (
-					<small className='help text-danger'>{errors.text}</small>
-				)}
+				{errors.text && <small className='text-danger'>{errors.text}</small>}
 			</div>
 
 			<div>
@@ -66,7 +57,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 					/>
 				</div>
 				{errors.author && (
-					<small className='help text-danger'>{errors.author}</small>
+					<small className='text-danger'>{errors.author}</small>
 				)}
 			</div>
 
@@ -81,9 +72,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						value={data.manufacturer}
 					/>
 				</div>
-				{errors.image && (
-					<small className='help text-danger'>{errors.image}</small>
-				)}
+				{errors.image && <small className='text-danger'>{errors.image}</small>}
 			</div>
 
 			<div>
@@ -104,7 +93,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 
 			<div>
 				<div>
-					<button type='submit' className='button text-warning is-fullwidth'>
+					<button type='submit' className='text-warning'>
 						Submit
 					</button>
 				</div>
