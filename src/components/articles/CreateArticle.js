@@ -31,7 +31,7 @@ class CreateArticle extends React.Component {
 				headers: { Authorization: `Bearer ${Auth.getToken()}` },
 			})
 			noticiation('Added Article')
-			this.props.history.push(`/articles/${data._id}`)
+			this.props.history.push(`/blog/${data._id}`)
 		} catch (errors) {
 			this.setState({ errors: errors.response.data.errors })
 		}

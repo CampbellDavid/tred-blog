@@ -34,7 +34,6 @@ class EditArticle extends React.Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault()
-
 		const articleId = this.props.match.params.id
 		try {
 			const res = await axios.put(
@@ -44,7 +43,7 @@ class EditArticle extends React.Component {
 					headers: { Authorization: `Bearer ${Auth.getToken()}` },
 				}
 			)
-			this.props.history.push(`/articles/${res.data._id}`)
+			this.props.history.push(`/blog/${res.data._id}`)
 		} catch (errors) {
 			this.setState({ errors: errors.response.data.errors })
 		}

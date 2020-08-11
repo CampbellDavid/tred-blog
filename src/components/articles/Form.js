@@ -93,7 +93,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 
 			<div>
 				<div>
-					<button type='submit' className='text-warning'>
+					<button type='submit' className='text-success'>
 						Submit
 					</button>
 				</div>
