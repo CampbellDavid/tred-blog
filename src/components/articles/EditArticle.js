@@ -20,6 +20,7 @@ class EditArticle extends React.Component {
 		const articleId = this.props.match.params.id
 		try {
 			const { data } = await axios.get(`/api/articles/${articleId}`)
+			console.log(data)
 			this.setState({ data })
 		} catch (err) {
 			console.log(err)

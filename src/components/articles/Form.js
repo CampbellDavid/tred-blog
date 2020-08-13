@@ -25,7 +25,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						placeholder='URL'
 						name='_url'
 						onChange={handleChange}
-						value={data.manufacturer}
+						value={data._url}
 					/>
 				</div>
 				{errors._url && <small className='text-danger'>{errors._url}</small>}
@@ -39,7 +39,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						placeholder='Text'
 						name='text'
 						onChange={handleChange}
-						value={data.manufacturer}
+						value={data.text}
 					/>
 				</div>
 				{errors.text && <small className='text-danger'>{errors.text}</small>}
@@ -53,7 +53,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						placeholder='Author'
 						name='author'
 						onChange={handleChange}
-						value={data.manufacturer}
+						value={data.author}
 					/>
 				</div>
 				{errors.author && (
@@ -69,7 +69,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						placeholder='Image'
 						name='image'
 						onChange={handleChange}
-						value={data.manufacturer}
+						value={data.image}
 					/>
 				</div>
 				{errors.image && <small className='text-danger'>{errors.image}</small>}
@@ -83,7 +83,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						placeholder='Summary'
 						name='summary'
 						onChange={handleChange}
-						value={data.manufacturer}
+						value={data.summary}
 					/>
 				</div>
 				{errors.summary && (
