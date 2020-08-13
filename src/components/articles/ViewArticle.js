@@ -12,6 +12,7 @@ class ViewArticle extends React.Component {
 
 	async componentDidMount() {
 		const articleId = this.props.match.params.id
+		console.log(this)
 		try {
 			const { data } = await axios.get(`/api/articles/${articleId}`)
 			this.setState({ article: data })
@@ -48,8 +49,9 @@ class ViewArticle extends React.Component {
 						/>
 						<h2>{article.title}</h2>
 						<p>
-							{Moment(article.createdAt).format('MMM Do, YYYY')} |{' '}
-							{this.wordCount()} min read
+							{`${Moment(article.createdAt).format(
+								'MMM Do, YYYY'
+							)} | ${this.wordCount()} min read`}
 						</p>
 						<hr />
 						<p>{article.text}</p>

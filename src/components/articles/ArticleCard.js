@@ -49,8 +49,9 @@ const ArticleCard = ({ _id, title, _url, text, image, summary, createdAt }) => {
 					{Moment(createdAt).format('MMM Do, YYYY')}
 				</Typography>
 				<Typography variant='body2' component='p'>
-					{Math.ceil(wordCount / 250)}{' '}
-					{Math.ceil(wordCount / 250) === 1 ? 'min' : 'mins'}
+					{`${Math.ceil(wordCount / 250)} ${
+						Math.ceil(wordCount / 250) === 1 ? 'min' : 'mins'
+					}`}
 				</Typography>
 			</CardActions>
 		</Card>
