@@ -35,14 +35,18 @@ class Index extends React.Component {
 						<h2 className='index-head mr-3'>Our Blog</h2>
 						<SearchBar onChange={this.handleChange} />
 					</div>
-					<div className='columns is-mobile is-multiline'>
-						{articleArray.length === 0 && this.state.userInput ? (
-							<p>No found articles</p>
-						) : (
-							articleArray.map((article) => (
-								<ArticleCard key={article._id} {...article} />
-							))
-						)}
+					<div className='d-flex justify-content-center'>
+						<div className='d-flex'>
+							<div className='d-flex row'>
+								{articleArray.length === 0 && this.state.userInput ? (
+									<p>No found articles</p>
+								) : (
+									articleArray.map((article) => (
+										<ArticleCard key={article._id} {...article} />
+									))
+								)}
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>

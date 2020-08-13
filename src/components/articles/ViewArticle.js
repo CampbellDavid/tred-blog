@@ -28,7 +28,7 @@ class ViewArticle extends React.Component {
 	wordCount = () => {
 		if (!this.state.article.text) return null
 		const textArr = this.state.article.text.split(' ')
-		return Math.round(textArr.length / 250)
+		return Math.ceil(textArr.length / 250)
 	}
 
 	render() {

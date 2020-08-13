@@ -12,7 +12,7 @@ import Moment from 'moment'
 
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 345,
+		maxWidth: 350,
 	},
 	media: {
 		height: 140,
@@ -25,7 +25,7 @@ const ArticleCard = ({ _id, title, _url, text, image, summary, createdAt }) => {
 	console.log(wordCount)
 	return (
 		<Card
-			className={classes.root}
+			className={`${classes.root} m-2`}
 			style={{
 				color: '#F5FFF5',
 				backgroundColor: '#627968',
@@ -49,8 +49,8 @@ const ArticleCard = ({ _id, title, _url, text, image, summary, createdAt }) => {
 					{Moment(createdAt).format('MMM Do, YYYY')}
 				</Typography>
 				<Typography variant='body2' component='p'>
-					{Math.round(wordCount / 250)}{' '}
-					{Math.round(wordCount / 250) === 1 ? 'min' : 'mins'}
+					{Math.ceil(wordCount / 250)}{' '}
+					{Math.ceil(wordCount / 250) === 1 ? 'min' : 'mins'}
 				</Typography>
 			</CardActions>
 		</Card>
