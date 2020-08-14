@@ -28,7 +28,7 @@ class CreateArticle extends React.Component {
 			const { data } = await axios.post('/api/articles', this.state.data, {
 				headers: { Authorization: `Bearer ${Auth.getToken()}` },
 			})
-			this.props.history.push(`/blog/${data._id}`)
+			this.props.history.push(`/blog/${data.slug}`)
 		} catch (errors) {
 			console.log(errors.response.data.errors)
 			this.setState({ errors: errors.response.data.errors })

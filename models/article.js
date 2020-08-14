@@ -9,7 +9,7 @@ const articleSchema = new mongoose.Schema(
 		text: { type: String, required: true },
 		author: { type: String, required: true },
 		image: { type: String, required: true },
-		summary: { type: String, required: true },
+		summary: { type: String, required: true, maxLength: 75 },
 		slug: { type: String, slug: 'title', unique: true },
 		user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 	},

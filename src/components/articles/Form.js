@@ -12,6 +12,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						name='title'
 						onChange={handleChange}
 						value={data.title}
+						maxLength='150'
 					/>
 				</div>
 				{errors.type && <small className='text-danger'>{errors.title}</small>}
@@ -70,6 +71,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						name='summary'
 						onChange={handleChange}
 						value={data.summary}
+						maxLength='75'
 					/>
 				</div>
 				{errors.summary && (
