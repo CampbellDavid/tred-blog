@@ -10,7 +10,7 @@ const articleSchema = new mongoose.Schema(
 		author: { type: String, required: true },
 		image: { type: String, required: true },
 		summary: { type: String, required: true, maxLength: 75 },
-		slug: { type: String, slug: 'title', unique: true },
+		slug: { type: String, slug: 'title', slug_padding_size: 4, unique: true },
 		user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 	},
 	{
