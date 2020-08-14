@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Auth from '../../lib/auth'
 import Moment from 'moment'
-import Markdown from 'react-textarea-markdown'
+import MarkdownPreview from '@uiw/react-markdown-preview'
 
 class ViewArticle extends React.Component {
 	state = {
@@ -55,11 +55,7 @@ class ViewArticle extends React.Component {
 							)} | ${this.wordCount()} min read`}
 						</p>
 						<hr />
-						<Markdown
-							textarea={false}
-							customWidth={[50, 50]}
-							source={article.text}
-						/>
+						<MarkdownPreview source={article.text} />
 						<p style={{ fontStyle: 'italic' }}>by {article.author}</p>
 					</div>
 				</div>

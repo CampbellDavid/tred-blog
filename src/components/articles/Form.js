@@ -1,4 +1,5 @@
 import React from 'react'
+import MarkdownPreview from '@uiw/react-markdown-preview'
 
 const Form = ({ data, handleChange, handleSubmit, errors }) => (
 	<div>
@@ -35,6 +36,8 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 				</div>
 				{errors.text && <small className='text-danger'>{errors.text}</small>}
 			</div>
+
+			<MarkdownPreview source={data.text} />
 
 			<div>
 				<label className='label'>Author</label>
