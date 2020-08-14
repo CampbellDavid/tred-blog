@@ -7,7 +7,6 @@ class CreateArticle extends React.Component {
 	state = {
 		data: {
 			title: '',
-			_url: '',
 			text: '',
 			author: '',
 			image: '',

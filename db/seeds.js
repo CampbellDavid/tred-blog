@@ -24,7 +24,6 @@ mongoose.connect(
 				return Article.create([
 					{
 						title: 'This Is A Demo Article',
-						_url: 'demo-article',
 						text:
 							'Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Turpis tincidunt id aliquet risus feugiat in ante. Non blandit massa enim nec dui nunc mattis enim. Arcu cursus euismod quis viverra nibh cras pulvinar mattis. Potenti nullam ac tortor vitae purus faucibus. Nullam non nisi est sit. Porta non pulvinar neque laoreet suspendisse. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. In cursus turpis massa tincidunt dui ut ornare. Tortor pretium viverra suspendisse potenti. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat in. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Nunc lobortis mattis aliquam faucibus purus. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget. Placerat vestibulum lectus mauris ultrices. Pellentesque dignissim enim sit amet. Volutpat diam ut venenatis tellus in metus vulputate. Integer feugiat scelerisque varius morbi.',
 						author: 'Joe Bloggs',

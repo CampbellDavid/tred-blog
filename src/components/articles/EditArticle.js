@@ -7,7 +7,6 @@ class EditArticle extends React.Component {
 	state = {
 		data: {
 			title: '',
-			_url: '',
 			text: '',
 			author: '',
 			image: '',
@@ -17,7 +16,7 @@ class EditArticle extends React.Component {
 	}
 
 	async componentDidMount() {
-		const articleId = this.props.match.params.id
+		const articleId = this.props.match.params.slug
 		try {
 			const { data } = await axios.get(`/api/articles/${articleId}`)
 			console.log(data)
@@ -35,7 +34,7 @@ class EditArticle extends React.Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault()
-		const articleId = this.props.match.params.id
+		const articleId = this.props.match.params.slug
 		try {
 			const res = await axios.put(
 				`/api/articles/${articleId}`,
@@ -44,7 +43,7 @@ class EditArticle extends React.Component {
 					headers: { Authorization: `Bearer ${Auth.getToken()}` },
 				}
 			)
-			this.props.history.push(`/blog/${res.data._id}`)
+			this.props.history.push(`/blog/${res.data.slug}`)
 		} catch (errors) {
 			this.setState({ errors: errors.response.data.errors })
 		}

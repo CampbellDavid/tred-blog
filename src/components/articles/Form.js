@@ -18,20 +18,6 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 			</div>
 
 			<div>
-				<label className='label'>URL</label>
-				<div>
-					<input
-						className={`input ${errors._url ? 'text-danger' : ''}`}
-						placeholder='URL'
-						name='_url'
-						onChange={handleChange}
-						value={data._url}
-					/>
-				</div>
-				{errors._url && <small className='text-danger'>{errors._url}</small>}
-			</div>
-
-			<div>
 				<label className='label'>Text</label>
 				<div>
 					<input

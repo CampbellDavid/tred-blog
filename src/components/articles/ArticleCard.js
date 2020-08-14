@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 	},
 })
 
-const ArticleCard = ({ _id, title, _url, text, image, summary, createdAt }) => {
+const ArticleCard = ({ _id, title, slug, text, image, summary, createdAt }) => {
 	const classes = useStyles()
 	const wordCount = text.split(' ').length
 	console.log(wordCount)
@@ -32,7 +32,7 @@ const ArticleCard = ({ _id, title, _url, text, image, summary, createdAt }) => {
 			}}
 		>
 			<CardActionArea>
-				<Link to={`/blog/${_id}`}>
+				<Link to={`/blog/${slug}`}>
 					<CardMedia className={classes.media} image={image} title={title} />
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='h2'>

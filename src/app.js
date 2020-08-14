@@ -26,11 +26,11 @@ class App extends React.Component {
 					<Notifications />
 					<Switch>
 						<Route exact path='/' component={Home} />
-						<SecureRoute path='/blog/:id/edit' component={EditArticle} />
+						<SecureRoute path='/blog/:slug/edit' component={EditArticle} />
 						<SecureRoute path='/blog/create' component={CreateArticle} />
 						<Route path='/blog/register' component={Register} />
 						<Route path='/blog/login' component={Login} />
-						<Route path='/blog/:id' component={ViewArticle} />
+						<Route path='/blog/:slug' component={ViewArticle} />
 						<Route exact path='/blog' component={Articles} />
 						<Route exact path='/*' component={Unknown} />
 					</Switch>

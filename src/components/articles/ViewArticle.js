@@ -11,8 +11,8 @@ class ViewArticle extends React.Component {
 	}
 
 	async componentDidMount() {
-		const articleId = this.props.match.params.id
-		console.log(this)
+		const articleId = this.props.match.params.slug
+
 		try {
 			const { data } = await axios.get(`/api/articles/${articleId}`)
 			this.setState({ article: data })
