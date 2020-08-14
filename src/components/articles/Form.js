@@ -1,5 +1,8 @@
 import React from 'react'
 import MarkdownPreview from '@uiw/react-markdown-preview'
+import ImgUpload from './ImgUpload'
+
+// import { Image, Transformation, CloudinaryContext } from 'cloudinary-react'
 
 const Form = ({ data, handleChange, handleSubmit, errors }) => (
 	<div>
@@ -57,18 +60,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 			</div>
 
 			<div>
-				<label className='label'>Image</label>
-				<div>
-					<input
-						className={`input ${errors.image ? 'text-danger' : ''}`}
-						placeholder='Image'
-						name='image'
-						onChange={handleChange}
-						value={data.image}
-						required
-					/>
-				</div>
-				{errors.image && <small className='text-danger'>{errors.image}</small>}
+				<ImgUpload handleChange={handleChange} fieldName='image' required />
 			</div>
 
 			<div>
