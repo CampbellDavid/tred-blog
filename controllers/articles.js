@@ -14,20 +14,21 @@ function create(req, res) {
 }
 
 function show(req, res) {
-	Article.findById(req.params.id)
-		.then(console.log(req.params.id))
+	Article.findOne({ slug: req.params.slug })
+		.then(console.log(req.params.slug))
 		.then((article) => res.status(202).json(article))
 		.catch((err) => console.log(err))
 }
 
 function deleteArticle(req, res) {
-	Article.findByIdAndDelete(req.params.id)
+	Article.findOne({ slug: req.params.slug })
+		.then((article) => article.deleteOne())
 		.then(() => res.sendStatus(204))
 		.catch((err) => console.log(err))
 }
 
 function edit(req, res) {
-	Article.findById(req.params.id)
+	Article.findOne({ slug: req.params.slug })
 		.then((article) => {
 			if (!article) return res.status(404).json({ message: 'Not Found' })
 			Object.assign(article, req.body)
@@ -44,3 +45,5 @@ module.exports = {
 	deleteArticle,
 	edit,
 }
+
+// delete requires user auth?

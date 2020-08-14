@@ -6,7 +6,7 @@ const secureRoute = require('../lib/secureRoute')
 router.route('/articles').get(articles.index).post(secureRoute, articles.create)
 
 router
-	.route('/articles/:id')
+	.route('/articles/:slug')
 	.get(articles.show)
 	.delete(secureRoute, articles.deleteArticle)
 	.put(secureRoute, articles.edit)
