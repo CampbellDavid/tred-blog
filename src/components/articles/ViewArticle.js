@@ -54,7 +54,7 @@ class ViewArticle extends React.Component {
 							)} | ${this.wordCount()} min read`}
 						</p>
 						<hr />
-						<p>{article.text}</p>
+						<p style={{ whiteSpace: 'pre-line' }}>{article.text}</p>
 						<p style={{ fontStyle: 'italic' }}>by {article.author}</p>
 					</div>
 				</div>

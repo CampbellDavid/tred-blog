@@ -13,6 +13,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						onChange={handleChange}
 						value={data.title}
 						maxLength='150'
+						required
 					/>
 				</div>
 				{errors.type && <small className='text-danger'>{errors.title}</small>}
@@ -21,12 +22,15 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 			<div>
 				<label className='label'>Text</label>
 				<div>
-					<input
+					<textarea
 						className={`input ${errors.text ? 'text-danger' : ''}`}
 						placeholder='Text'
 						name='text'
 						onChange={handleChange}
 						value={data.text}
+						rows='10'
+						cols='70'
+						required
 					/>
 				</div>
 				{errors.text && <small className='text-danger'>{errors.text}</small>}
@@ -41,6 +45,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						name='author'
 						onChange={handleChange}
 						value={data.author}
+						required
 					/>
 				</div>
 				{errors.author && (
@@ -57,6 +62,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						name='image'
 						onChange={handleChange}
 						value={data.image}
+						required
 					/>
 				</div>
 				{errors.image && <small className='text-danger'>{errors.image}</small>}
@@ -72,6 +78,7 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 						onChange={handleChange}
 						value={data.summary}
 						maxLength='75'
+						required
 					/>
 				</div>
 				{errors.summary && (
