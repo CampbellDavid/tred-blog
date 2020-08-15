@@ -23,7 +23,6 @@ class CreateArticle extends React.Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault()
-
 		try {
 			const { data } = await axios.post('/api/articles', this.state.data, {
 				headers: { Authorization: `Bearer ${Auth.getToken()}` },
@@ -35,6 +34,16 @@ class CreateArticle extends React.Component {
 		}
 	}
 
+	handleCancel = (event) => {
+		event.preventDefault()
+		this.props.history.push('/blog')
+	}
+
+	handleLogout = () => {
+		Auth.logout()
+		this.props.history.push('/blog')
+	}
+
 	render() {
 		return (
 			<section className='section'>
@@ -43,9 +52,13 @@ class CreateArticle extends React.Component {
 						data={this.state.data}
 						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
+						handleCancel={this.handleCancel}
 						errors={this.state.errors}
 					/>
 				</div>
+				{Auth.isAuthenticated() && (
+					<button onClick={this.handleLogout}>Logout</button>
+				)}
 			</section>
 		)
 	}

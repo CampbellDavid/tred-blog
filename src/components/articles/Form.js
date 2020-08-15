@@ -1,10 +1,9 @@
 import React from 'react'
 import MarkdownPreview from '@uiw/react-markdown-preview'
 import ImgUpload from './ImgUpload'
+import { Link } from 'react-router-dom'
 
-// import { Image, Transformation, CloudinaryContext } from 'cloudinary-react'
-
-const Form = ({ data, handleChange, handleSubmit, errors }) => (
+const Form = ({ data, handleChange, handleSubmit, handleCancel, errors }) => (
 	<div>
 		<form onSubmit={handleSubmit}>
 			<div>
@@ -85,6 +84,9 @@ const Form = ({ data, handleChange, handleSubmit, errors }) => (
 				<div>
 					<button type='submit' className='text-success'>
 						Submit
+					</button>
+					<button onClick={handleCancel} type='button' className='text-success'>
+						Cancel
 					</button>
 				</div>
 			</div>

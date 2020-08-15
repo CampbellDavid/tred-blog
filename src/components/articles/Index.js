@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import ArticleCard from './ArticleCard'
 import SearchBar from '../common/SearchBar'
+import Auth from '../../lib/auth'
 
 class Index extends React.Component {
 	state = {
@@ -21,6 +22,15 @@ class Index extends React.Component {
 
 	handleChange = (userInput) => {
 		this.setState({ userInput })
+	}
+
+	handleLogout = () => {
+		Auth.logout()
+		this.props.history.push('/blog')
+	}
+
+	createNewArticle = () => {
+		this.props.history.push('/blog/create')
 	}
 
 	render() {
@@ -48,6 +58,12 @@ class Index extends React.Component {
 							</div>
 						</div>
 					</div>
+					{Auth.isAuthenticated() && (
+						<div className='buttons'>
+							<button onClick={this.handleLogout}>Logout</button>
+							<button onClick={this.createNewArticle}>New Article</button>
+						</div>
+					)}
 				</div>
 			</section>
 		)

@@ -27,10 +27,27 @@ class ViewArticle extends React.Component {
 		return Auth.getPayload().sub === this.state.article.user
 	}
 
+	handleDelete = async () => {
+		const articleId = this.props.match.params.slug
+		try {
+			await axios.delete(`/api/articles/${articleId}`, {
+				headers: { Authorization: `Bearer ${Auth.getToken()}` },
+			})
+			this.props.history.push('/blog')
+		} catch (err) {
+			this.props.history.push('/unknown')
+		}
+	}
+
 	wordCount = () => {
 		if (!this.state.article.text) return null
 		const textArr = this.state.article.text.split(' ')
 		return Math.ceil(textArr.length / 250)
+	}
+
+	handleLogout = () => {
+		Auth.logout()
+		this.props.history.push('/blog')
 	}
 
 	render() {
@@ -58,7 +75,35 @@ class ViewArticle extends React.Component {
 						<MarkdownPreview source={article.text} />
 						<p style={{ fontStyle: 'italic' }}>by {article.author}</p>
 					</div>
+					<>
+						{Auth.isAuthenticated() ? (
+							<div>
+								{
+									<div>
+										<Link to={`/blog/${article.slug}/edit`}>
+											<button
+												to={`/blog/${article.slug}/edit`}
+												className='btn btn-dark'
+												type='button'
+											>
+												Edit
+											</button>
+										</Link>
+										<button
+											className='btn btn-danger'
+											onClick={this.handleDelete}
+										>
+											Delete
+										</button>
+									</div>
+								}
+							</div>
+						) : null}
+					</>
 				</div>
+				{Auth.isAuthenticated() && (
+					<button onClick={this.handleLogout}>Logout</button>
+				)}
 				<div className='col-2'></div>
 			</section>
 		)

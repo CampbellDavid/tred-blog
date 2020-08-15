@@ -49,6 +49,16 @@ class EditArticle extends React.Component {
 		}
 	}
 
+	handleCancel = (event) => {
+		event.preventDefault()
+		this.props.history.push('/blog')
+	}
+
+	handleLogout = () => {
+		Auth.logout()
+		this.props.history.push('/blog')
+	}
+
 	render() {
 		return (
 			<section className='section'>
@@ -57,9 +67,13 @@ class EditArticle extends React.Component {
 						data={this.state.data}
 						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
+						handleCancel={this.handleCancel}
 						errors={this.state.errors}
 					/>
 				</div>
+				{Auth.isAuthenticated() && (
+					<button onClick={this.handleLogout}>Logout</button>
+				)}
 			</section>
 		)
 	}
