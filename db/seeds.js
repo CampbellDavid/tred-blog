@@ -12,8 +12,8 @@ mongoose.connect(
 			.then(() => {
 				return User.create([
 					{
-						username: 'david',
-						email: 'david@email.co',
+						username: 'newUser',
+						email: 'newUser@email.co',
 						password: 'password1',
 						passwordConfirmation: 'password1',
 					},

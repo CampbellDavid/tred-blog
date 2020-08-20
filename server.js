@@ -1,9 +1,9 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
+const morgan = require('morgan')
 const app = express()
 const { port, dbURI } = require('./config/environment')
-const logger = require('./lib/logger')
 const router = require('./config/router')
 
 mongoose.connect(
@@ -15,16 +15,18 @@ mongoose.connect(
 	}
 )
 
-app.use(express.static(`${__dirname}/dist`))
+mongoose.connection.on('connected', () => {
+	console.log('Mongoose is ON')
+})
 
-app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: false }))
 
-app.use(logger)
+app.use(express.json())
+
+app.use(morgan('tiny'))
 
 app.use('/api', router)
 
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
-
-app.listen(port, () => console.log(port))
+app.listen(port, () => console.log(`Server running on port ${port}`))
 
 module.exports = app
