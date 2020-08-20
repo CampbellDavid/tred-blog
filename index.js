@@ -24,3 +24,5 @@ app.use(logger)
 app.use('/api', router)
 
 app.listen(port, () => console.log(`running on port ${port}`))
+
+module.exports = app
