@@ -45,5 +45,3 @@ module.exports = {
 	deleteArticle,
 	edit,
 }
-
-// delete requires user auth?
