@@ -23,6 +23,8 @@ app.use(logger)
 
 app.use('/api', router)
 
-app.listen(port, () => console.log(`running on port ${port}`))
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
+
+app.listen(port, () => console.log(port))
 
 module.exports = app
