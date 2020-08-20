@@ -6,14 +6,16 @@ const { port, dbURI } = require('./config/environment')
 const logger = require('./lib/logger')
 const router = require('./config/router')
 
-mongoose.connect(
-	dbURI,
-	{ useNewUrlParser: true, useUnifiedTopology: true },
-	(error) => {
-		if (error) return console.log(error)
-		console.log('connected to Mongo')
-	}
-)
+const MONGODB_URI = process.env.MONGODB_URL || 'mongodb://localhost/articles'
+
+const options = {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false,
+	family: 4,
+}
+
+mongoose.connect(MONGODB_URI, options)
 
 app.use(express.static(`${__dirname}/dist`))
 
