@@ -17,6 +17,7 @@ const Form = ({ data, handleChange, handleSubmit, handleCancel, errors }) => (
 						value={data.title}
 						maxLength='150'
 						required
+						width='100%'
 					/>
 				</div>
 				{errors.type && <small className='text-danger'>{errors.title}</small>}
@@ -31,15 +32,17 @@ const Form = ({ data, handleChange, handleSubmit, handleCancel, errors }) => (
 						name='text'
 						onChange={handleChange}
 						value={data.text}
-						rows='10'
-						cols='70'
+						style={{ width: '100%', height: '50vh' }}
 						required
 					/>
 				</div>
 				{errors.text && <small className='text-danger'>{errors.text}</small>}
 			</div>
 
-			<MarkdownPreview source={data.text} />
+			<div className='preview-div'>
+				<label className='label'>Preview</label>
+				<MarkdownPreview source={data.text} className='preview-box' />
+			</div>
 
 			<div>
 				<label className='label'>Author</label>
