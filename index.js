@@ -8,10 +8,10 @@ const router = require('./config/router')
 
 mongoose.connect(
 	dbURI,
-	{ useNewUrlParser: true, useUnifiedTopology: true },
-	(error) => {
-		if (error) return console.log(error)
-		console.log('connected to Mongo')
+	{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+	(err) => {
+		if (err) return console.log(err)
+		console.log('Mongo Connected')
 	}
 )
 
