@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const app = express()
 const { port, dbURI } = require('./config/environment')
 const router = require('./config/router')
+const cors = require('cors')
 
 mongoose.connect(
 	dbURI,
@@ -18,6 +19,8 @@ mongoose.connect(
 mongoose.connection.on('connected', () => {
 	console.log('Mongoose is ON')
 })
+
+app.use(cors())
 
 app.use(express.urlencoded({ extended: false }))
 
