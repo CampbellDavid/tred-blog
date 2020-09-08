@@ -11,7 +11,7 @@ router
 	.delete(secureRoute, articles.deleteArticle)
 	.put(secureRoute, articles.edit)
 
-router.route('/register').post(users.register)
+// router.route('/register').post(users.register)
 
 router.route('/login').post(users.login)
 
