@@ -12,10 +12,10 @@ mongoose.connect(
 			.then(() => {
 				return User.create([
 					{
-						username: 'newUser',
-						email: 'newUser@email.co',
-						password: 'password1',
-						passwordConfirmation: 'password1',
+						username: 'admin',
+						email: 'hello@tred.earth',
+						password: 'Tred123',
+						passwordConfirmation: 'Tred123',
 					},
 				])
 			})
@@ -23,14 +23,14 @@ mongoose.connect(
 				console.log(`${'newUser'.repeat(createdUsers.length)} users created`)
 				return Article.create([
 					{
-						title: 'This Is A Demo Article',
+						title: 'Initial Seed',
 						text:
 							'Eu tincidunt tortor aliquam nulla facilisi cras fermentum. Turpis tincidunt id aliquet risus feugiat in ante. Non blandit massa enim nec dui nunc mattis enim. Arcu cursus euismod quis viverra nibh cras pulvinar mattis. Potenti nullam ac tortor vitae purus faucibus. Nullam non nisi est sit. Porta non pulvinar neque laoreet suspendisse. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. In cursus turpis massa tincidunt dui ut ornare. Tortor pretium viverra suspendisse potenti. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat in. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Nunc lobortis mattis aliquam faucibus purus. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget. Placerat vestibulum lectus mauris ultrices. Pellentesque dignissim enim sit amet. Volutpat diam ut venenatis tellus in metus vulputate. Integer feugiat scelerisque varius morbi.',
 						author: 'Joe Bloggs',
-						tags: { type: String, required: false },
+						authorBio: 'Bio for Joe Bloggs',
 						image:
 							'https://cdn.mos.cms.futurecdn.net/YLMh9EJRPhmht9GWNhiN7G-1024-80.jpg.webp',
-						summary: 'This is a summary',
+						summary: 'Article Summary',
 						user: createdUsers[0],
 					},
 				])
